@@ -1,0 +1,7 @@
+<h1>Houses</h1>
+<ul>
+<% for house in @houses %>
+  <li><%= link_to house.name, house_path(house) %></li>
+<% end %>
+</ul>
+<p><%= link_to "New House", new_house_path %></p>

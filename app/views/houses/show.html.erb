@@ -1,0 +1,5 @@
+<h1><%= @house.name %></h1>
+<h2>Motto: <%= @house.motto %></h2>
+<p><%= link_to "Edit House", edit_house_path(@house) %></p>
+<p><%= link_to "Delete House", house_path(@house), method: :delete %></p>
+<p><%= link_to "Back to Houses", houses_path %></p>
