@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 root to: 'houses#index'
 
-resources :houses
-
-
+resources :houses do
+  resources :characters
+end
 end

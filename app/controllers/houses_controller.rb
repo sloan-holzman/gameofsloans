@@ -10,6 +10,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    @characters = @house.characters
   end
 
   def create

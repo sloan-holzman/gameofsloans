@@ -1,0 +1,9 @@
+<h1>Edit Character</h1>
+
+<%= form_for [@house,@character] do |f|  %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Update" %>
+
+<% end %>
