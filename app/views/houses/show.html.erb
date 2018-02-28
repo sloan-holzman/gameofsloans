@@ -7,6 +7,8 @@
 </ul>
 <p><%= link_to "Add Character", new_house_character_path(@house) %></p>
 <br>
-<p><%= link_to "Edit House", edit_house_path(@house) %></p>
-<p><%= link_to "Delete House", house_path(@house), method: :delete %></p>
+<% if can? :update, @house %>
+  <p><%= link_to "Edit House", edit_house_path(@house) %></p>
+  <p><%= link_to "Delete House", house_path(@house), method: :delete %></p>
+<% end %>
 <p><%= link_to "Back to Houses", houses_path %></p>

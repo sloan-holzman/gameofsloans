@@ -15,7 +15,7 @@ class CharactersController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @character = @house.characters.create!(character_params)
+    @character = @house.characters.create!(character_params.merge(user_id: current_user.id))
     flash[:notice] = "You successfully created the character #{@character.name}"
     redirect_to house_path(@house)
   end

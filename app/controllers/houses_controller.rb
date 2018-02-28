@@ -14,7 +14,7 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house = House.create!(house_params)
+    @house = House.create!(house_params.merge(user_id: current_user.id))
     redirect_to houses_path
   end
 
