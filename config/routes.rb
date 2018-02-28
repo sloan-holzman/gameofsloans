@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 root to: 'houses#index'
 
 resources :houses do
-  resources :characters
+  resources :characters do
+    resources :tags
+  end
 end
+get 'categories/:id' => 'categories#show', :as => :category_show
+
 end

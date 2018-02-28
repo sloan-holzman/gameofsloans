@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227204655) do
+ActiveRecord::Schema.define(version: 20180227221003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -28,5 +32,14 @@ ActiveRecord::Schema.define(version: 20180227204655) do
     t.string "motto"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "character_id", null: false
+    t.index ["category_id"], name: "index_tags_on_category_id"
+    t.index ["character_id"], name: "index_tags_on_character_id"
+  end
+
   add_foreign_key "characters", "houses"
+  add_foreign_key "tags", "categories"
+  add_foreign_key "tags", "characters"
 end
